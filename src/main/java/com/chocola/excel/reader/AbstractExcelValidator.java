@@ -9,7 +9,7 @@ public abstract class AbstractExcelValidator<E> implements IExcelValidator<E> {
 
     @Override
     public final ExcelUnitData<E> isPass(E cellValue, Cell cell, CellInfo cellInfo) {
-        ExcelUnitData<E> excelUnitData = new ExcelUnitData<>();
+        ExcelUnitData<E> excelUnitData = new ExcelUnitData<E>();
         validateData(cellValue, excelUnitData, cellInfo, cell.getRow());
         return excelUnitData;
 

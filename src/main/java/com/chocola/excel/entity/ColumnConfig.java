@@ -82,7 +82,7 @@ public class ColumnConfig {
 
     public static class ConfigBuilder {
 
-        private Map<String, ColumnConfig> columnConfigMap = new HashMap<>();
+        private Map<String, ColumnConfig> columnConfigMap = new HashMap<String, ColumnConfig>();
 
         public ConfigBuilder(String[] propertyNameArr) {
             if (propertyNameArr != null && propertyNameArr.length > 0) {
@@ -139,12 +139,13 @@ public class ColumnConfig {
         }
 
         public List<ColumnConfig> build() {
-            List<ColumnConfig> columnConfigList = new ArrayList<>(columnConfigMap.values());
-            columnConfigList.sort(new Comparator<ColumnConfig>() {
-                @Override
+            List<ColumnConfig> columnConfigList = new ArrayList<ColumnConfig>(columnConfigMap.values());
+
+            Collections.sort(columnConfigList, new Comparator<ColumnConfig>() {
                 public int compare(ColumnConfig o1, ColumnConfig o2) {
                     return o1.getExcelColumnIndex() - o2.getExcelColumnIndex();
                 }
+
             });
 
             return columnConfigList;

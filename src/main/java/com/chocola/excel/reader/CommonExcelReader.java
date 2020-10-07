@@ -32,7 +32,7 @@ public class CommonExcelReader {
     }
 
     public <T> ExcelImportData<T> read(Sheet sheet, List<ColumnConfig> columnConfigList, Class<T> tClass) {
-        ExcelImportData<T> excelImportData = new ExcelImportData<>();
+        ExcelImportData<T> excelImportData = new ExcelImportData<T>();
 
         int count = getRealRowCount(sheet); // 真实的行数
         if (count < 2) {

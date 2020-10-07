@@ -9,9 +9,9 @@ public class ExcelImportData<T> {
 
     private Integer flag = SUCCESS; // 导入是否成功标识，默认是成功的
 
-    private List<T> dataList = new ArrayList<>(); // 导入成功时的数据list
+    private List<T> dataList = new ArrayList<T>(); // 导入成功时的数据list
 
-    private List<String> errorList = new ArrayList<>(); // 错误信息list
+    private List<String> errorList = new ArrayList<String>(); // 错误信息list
 
     public void addData(T data) {
         this.dataList.add(data);
